@@ -36,7 +36,7 @@ void load_texture(GLuint& texture1, GLuint& texture2)
     glGenTextures(1, &texture1);
     glBindTexture(GL_TEXTURE_2D, texture1); // All upcoming GL_TEXTURE_2D operations now have effect on our texture object
     // Set our texture parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);   // Set texture wrapping to GL_REPEAT
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     // Set texture filtering
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -73,9 +73,9 @@ void load_texture(GLuint& texture1, GLuint& texture2)
 
 int main()
 {
-	glfwInit();
+    glfwInit();
 
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
@@ -188,8 +188,6 @@ int main()
         glBindTexture(GL_TEXTURE_2D, texture2);
         glUniform1i(glGetUniformLocation(ourShader.Program, "ourTexture1"), 0);
         
-        model = glm::mat4(1.0);
-        model = glm::translate(model,glm::vec3( 0.02f *(GLfloat)glfwGetTime(), 0.0f, 0.0f));
         model = glm::translate(model, glm::vec3(-0.3f, -0.5f, 0.35f));
 
         GLfloat angle = (GLfloat)glfwGetTime()*0.2f;
